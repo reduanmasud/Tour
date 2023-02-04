@@ -1,0 +1,48 @@
+@extends('layouts.app.app')
+@section('main-content')
+
+<div class="container">
+    <div class="row fs-4">
+        To book seat you have to send the total ammount to this (01735221***) bkash number.
+        Then from your mobile number just write the or pest the TrxID at the below input.
+        Within 1 or 2 hour you will get mobile sms of confirmation. 
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-7">
+            <h3>Your total cost</h3>
+            <table class="table">
+                <tr>
+                    <th>Number of Members:</th>
+                    <td>{{$data->number_of_persons}}</td>
+                </tr>
+                <tr>
+                    <th>Cost Per Person:</th>
+                    <td>{{$data->cost_per_persons}}</td>
+                </tr>
+                <tr>
+                    <th rowspan="2">Total Cost: </th>
+                    <td> = {{$data->number_of_persons}}x{{$data->cost_per_persons}}</td>
+                </tr>
+                <tr>
+                    <td> = {{$data->sub_total}}</td>
+                </tr>
+            </table>
+            <p class="text-danger">Now send {{$data->sub_total}} taka to 01933334** bkash number, counter no {{$data->counter_no}} and submit the TrxID number her and confirm bookings </p>
+        </div>
+        <div class="col-md-5">
+            <div>
+                <form action="route('booking')" method="post">
+                    <div class="mb-3">
+                        <label class="form-label" for="">TrxID</label>
+                        <input class="form-control" type="text" name="trxid" id="">
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Confirm Bookings</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
