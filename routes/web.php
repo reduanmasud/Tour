@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/browse/all', [TourController::class, 'browse_all'])->name('browse.all');
 Route::get('/tour/{id}', [TourController::class, 'show'])->name('tour.single');
 Route::get('/booking', fn() => view('booking'))->name('tour.booking');
 Route::post('/booking', [TourController::class, 'booking']);

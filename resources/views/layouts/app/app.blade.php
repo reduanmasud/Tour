@@ -96,12 +96,12 @@
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-            <span class="fs-4">Simple header</span>
+            <span class="fs-4">Ghuri</span>
             </a>
 
             <ul class="nav nav-pills">
             <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="single.html" class="nav-link">Browse</a></li>
+            <li class="nav-item"><a href="{{ route('browse.all') }}" class="nav-link">Browse</a></li>
             @auth
                 <li class="nav-item"><a href="{{route('dashboard')}}" class="nav-link">profile</a></li>
                 <li class="nav-item">
@@ -119,7 +119,7 @@
                 <li class="nav-item"><a href="{{route('login')}}" class="nav-link">Login</a></li>
                 <li class="nav-item"><a href="{{route('register')}}" class="nav-link">Registration</a></li>
             @endauth
-                       
+
             </ul>
         </header>
     </div>
