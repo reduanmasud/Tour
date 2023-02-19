@@ -1,3 +1,5 @@
+@extends('layouts.app.app')
+@section('main-content')
 <div class="container">
     @php
         $tours = App\Models\Tour::all();
@@ -21,3 +23,4 @@
 
     </div>
 </div>
+@endsection;
