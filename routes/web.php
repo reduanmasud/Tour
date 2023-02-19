@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 Route::get('/browse/all', [TourController::class, 'browse_all'])->name('browse.all');
 Route::get('/tour/{id}', [TourController::class, 'show'])->name('tour.single');

@@ -100,7 +100,7 @@
             </a>
 
             <ul class="nav nav-pills">
-            <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="{{ route('home') }}" class="nav-link active" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="{{ route('browse.all') }}" class="nav-link">Browse</a></li>
             @auth
                 <li class="nav-item"><a href="{{route('dashboard')}}" class="nav-link">profile</a></li>
