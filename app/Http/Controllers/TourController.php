@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class TourController extends Controller
 {
+
+    public function browse_all()
+    {
+        return view('browse');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -88,7 +93,7 @@ class TourController extends Controller
             'number_of_persons' => ['required'],
         ]);
 
-        
+
         Booking::created($request);
 
         $tour = Tour::find($request->tour_id);
@@ -134,6 +139,6 @@ class TourController extends Controller
     {
         //
     }
-    
+
 
 }
