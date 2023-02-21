@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'mobile',
+        'profile_image'
     ];
 
     /**
@@ -32,6 +35,8 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+
 
     /**
      * The attributes that should be cast.
@@ -57,4 +62,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Booking::class);
     }
+
+    //ROlE 0 -> GENERAL USER
+    //ROLE 1 -> HOSTER
+    //ROLE 2 -> ADMIN
 }

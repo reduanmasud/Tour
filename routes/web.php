@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TourController;
+use App\Http\Controllers\UserAuth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 })->name('home');
+
+
+Route::get('/user/login', [UserAuth::class, 'login_page'])->name('user.login');
+Route::post('/user/login', [UserAuth::class, 'login']);
+
+Route::get('/user/signup', [UserAuth::class, 'signup_page'])->name('user.signup');
+Route::post('/user/signup', [UserAuth::class, 'signup']);
+
 
 Route::get('/browse/all', [TourController::class, 'browse_all'])->name('browse.all');
 Route::get('/tour/{id}', [TourController::class, 'show'])->name('tour.single');

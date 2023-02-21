@@ -116,8 +116,8 @@
                     </form>
                 </li>
             @else
-                <li class="nav-item"><a href="{{route('login')}}" class="nav-link">Login</a></li>
-                <li class="nav-item"><a href="{{route('register')}}" class="nav-link">Registration</a></li>
+                <li class="nav-item"><a href="{{route('user.login')}}" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="{{route('user.signup')}}" class="nav-link">Registration</a></li>
             @endauth
 
             </ul>
