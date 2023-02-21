@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('booking_id')->references('id')->on('bookings');
+            $table->foreignId('tour_id')->references('id')->on('tours');
+            $table->string('trx_id');
+            $table->string('total_amount');
+            $table->string('mobile');
             $table->timestamps();
         });
     }

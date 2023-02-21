@@ -52,5 +52,6 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function(){
     Route::post('tour/add', [TourController::class, 'store'])->name('tour.add');
+    Route::get('/tour/check/{id}', [TourController::class, 'tour_check'])->name('tour.view');
 });
 require __DIR__.'/auth.php';

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Payment;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,50 @@ use Illuminate\Support\Facades\Auth;
 class TourController extends Controller
 {
 
+
+    public function payment(Request $request)
+    {
+        Payment::create([
+            'booking_id'=>$request->booking_id,
+            'tour_id'=> $request->tour_id,
+            'trx_id' => $request->trx_id,
+            'total_amount' => $request->total_amount,
+            'mobile'=>$request->mobile,
+
+        ]);
+
+
+        $booking = Booking::find($request->booking_id);
+        $booking->paid = 1;
+        $booking->save();
+
+        $tour = Tour::find($request->tour_id);
+        $tour->seat_number = $tour->seat_number - $booking->number_of_persons;
+        $tour->save();
+
+        return redirect()->route('home');
+    }
+
+    public function tour_check($id)
+    {
+        $tour = Tour::find($id);
+        $bookings = Booking::where('tour_id', $tour->id)->get();
+
+        $personCalc = 0;
+
+        foreach ($bookings as $key => $booking) {
+            $personCalc += $booking->number_of_persons;
+        }
+
+
+        return view('single-edit',[
+            'tour' => $tour,
+            'bookings' => $bookings,
+            'totalPerson' => $personCalc,
+        ]);
+
+
+    }
     public function browse_all()
     {
         return view('browse');
@@ -93,16 +138,29 @@ class TourController extends Controller
             'number_of_persons' => ['required'],
         ]);
 
-
-        Booking::created($request);
+        if($request->number_of_persons > Tour::find($request->tour_id)->seat_number)
+        {
+            return back()->with("error", "Limit corsses");
+        }
+        $booking = Booking::create([
+            'email' => $request->email,
+            'full_name' => $request->full_name,
+            'mobile' => $request->mobile,
+            'number_of_persons'=>$request->number_of_persons,
+            'tour_id' => $request->tour_id,
+            'paid'=>0,
+        ]);
 
         $tour = Tour::find($request->tour_id);
 
         $data = (object) [
+            'booking_id'=> $booking->id,
             'number_of_persons'=>$request->number_of_persons,
             'cost_per_persons'=> $tour->cost_per_person,
             'sub_total' => $request->number_of_persons * $tour->cost_per_person,
-            'counter_no' => $tour->id,
+            'tour_id' => $tour->id,
+            'mobile' => $request->mobile,
+
         ];
         return view('booking', ['data'=>$data]);
     }

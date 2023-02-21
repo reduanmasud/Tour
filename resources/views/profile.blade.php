@@ -24,11 +24,12 @@
             <div class="list-group" id="list-tab" role="tablist">
                 <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Home</a>
                 <a class="list-group-item list-group-item-action" id="list-tour-add-list" data-bs-toggle="list" href="#list-add-tour" role="tab" aria-controls="list-add-tour">Add Tour</a>
-                <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Messages</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">My Hosts</a>
                 <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
             </div>
         </div>
         <div class="col-8 bg-white border rounded">
+
             <div class="tab-content" id="nav-tabContent">
 
 
@@ -101,8 +102,36 @@
 
                 </div>
 
-                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...B</div>
-                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">.C..</div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+
+                    <div class="container mt-3">
+                        @php
+                            $tours = App\Models\Tour::where('user_id', Auth::user()->id)->get();
+                        @endphp
+                        <div class="row">
+
+                            @foreach ($tours as $tour)
+                            @php
+                                $images = json_decode($tour->images);
+                                $first_image = $images[0];
+                            @endphp
+                            <div class="card" style="width: 16rem;">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <img class="card-img-top" src="{{ asset('/storage/' . $first_image) }}" alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                <h5 class="card-title">{{$tour->destination}}</h5>
+                                <p class="card-text">{{$tour->description}}</p>
+                                <a href="{{route('tour.view',['id'=>$tour->id])}}" class="btn btn-primary">Check</a>
+                                </div>
+                            </div>
+                            @endforeach
+                    </div>
+
+                </div>
+
+
+
                 <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">D...</div>
             </div>
         </div>

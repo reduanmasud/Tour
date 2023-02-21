@@ -99,37 +99,39 @@
             <div class="col-md-6">Cost per Person : {{$tour->cost_per_person}}</div>
             <div class="col-md-6">Available Seat : {{$tour->seat_number}}</div>
         </div>
-            <form action="{{route('tour.booking')}}" method="POST">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Paid</th>
+                        <th scope="col">Number of Persons</th>
+                      </tr>
+                    </thead>
+                    <tbody>
 
-                @csrf
-                <input type="hidden" name="tour_id" value="{{$tour->id}}">
-                <div class="mb-3">
-                    <label for="">Your Email Address</label>
-                    <input type="text" name="email"  id="" class="form-control" required/>
-                    <input type="hidden" name="tour_id" value="{{$tour->id}}" required>
-                </div>
+                        @foreach ($bookings as $booking)
 
-                <div class="mb-3">
-                    <label for="">Your Full Name</label>
-                    <input type="text" name="full_name" id="" class="form-control" required/>
-                </div>
-
-                <div class="mb-3">
-                    <label for="">Mobile Number</label>
-                    <input type="text" name="mobile" id="" class="form-control" required/>
-                </div>
-
-                <div class="mb-3">
-                    <label for="">Number of person</label>
-                    <input type="text" name="number_of_persons" id="" class="form-control" required/>
-                </div>
-
-                <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="submit">Book Now</button>
-                </div>
+                        <tr>
+                            <th scope="row">#</th>
+                            <td>{{ $booking->full_name }}</td>
+                            <td>{{ $booking->email }}</td>
+                            <td>{{ $booking->mobile }}</td>
+                            <td>{{ $booking->paid }}</td>
+                            <td>{{ $booking->number_of_persons }}</td>
+                        </tr>
 
 
-            </form>
+                        @endforeach
+
+                    </tbody>
+                  </table>
+            </div>
+        </div>
         </div>
     </div>
 </div>

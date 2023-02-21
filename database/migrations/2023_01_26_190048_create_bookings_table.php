@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('bookings', function (Blueprint $table) {
-            // $table->id();
+            $table->id();
             // $table->id('tour_id');
             // $table->id('user_id');
             $table->string('email')->nullable();
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('mobile')->unique();
             $table->unsignedInteger('number_of_persons');
             $table->boolean('paid')->default(0);
-            
+
             $table->timestamps();
             $table->foreignId('tour_id')->references('id')->on('tours');
 

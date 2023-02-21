@@ -13,11 +13,12 @@ class Booking extends Model
         'full_name',
         'mobile',
         'number_of_persons',
-        'tour_id'
+        'tour_id',
+        'paid'
     ];
 
-    protected $primaryKey = 'moblile';
-    public $incrementing = false;
+    // protected $primaryKey = 'moblile';
+    // public $incrementing = false;
 
     use HasFactory;
 }
