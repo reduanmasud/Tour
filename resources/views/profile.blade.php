@@ -33,7 +33,8 @@
 
 
                 <div class="tab-pane fade show active p-3" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('update.image') }}" method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-3">
                             <label for="" class="form-label">Site Image</label>
                             <div class="input-group">
@@ -43,11 +44,12 @@
                         </div>
                     </form>
 
-                    <form action="" method="post">
+                    <form action="{{ route('update.title') }}" method="post">
+                        @csrf
                         <div class="mb-3">
                             <label for="" class="form-label">Site Title</label>
                             <div class="input-group">
-                                <input type="text" name="site_title" id="" class="form-control">
+                                <input type="text" name="site_title" id="" value="@if($site_settings->site_title != null) {{$site_settings->site_title}} @endif" class="form-control">
                                 <button type="submit" class="btn btn-primary">UPDATE TITLE</button>
                             </div>
                         </div>

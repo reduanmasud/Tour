@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SiteSettingsController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\UserAuth;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 })->name('home');
+
+
+Route::post('/site_settings/image', [SiteSettingsController::class, 'update_image'])->name('update.image');
+Route::post('/site_settings/title', [SiteSettingsController::class, 'update_title'])->name('update.title');
 
 
 Route::get('/user/login', [UserAuth::class, 'login_page'])->name('user.login');
