@@ -11,7 +11,7 @@
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
-                </ul> 
+                </ul>
             </div>
         @endif
 
@@ -30,9 +30,35 @@
         </div>
         <div class="col-8 bg-white border rounded">
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...A</div>
+
+
+                <div class="tab-pane fade show active p-3" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Site Image</label>
+                            <div class="input-group">
+                                <input type="file" name="site_logo" id="" class="form-control">
+                                <button type="submit" class="btn btn-primary">UPDATE IMAGE</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form action="" method="post">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Site Title</label>
+                            <div class="input-group">
+                                <input type="text" name="site_title" id="" class="form-control">
+                                <button type="submit" class="btn btn-primary">UPDATE TITLE</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+
+
                 <div class="tab-pane fade p-3" id="list-add-tour" role="tabpanel" aria-labelledby="list-profile-list">
-                   
+
                     <form method="POST" action="{{route('tour.add')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
@@ -47,7 +73,7 @@
                             <input type="number" name="cost_per_person" class="form-control" id="inputEmail3">
                             <small>Cost is per head count</small>
                             </div>
-                            
+
                         </div>
                         <div class="row mb-3">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Seat Number</label>
@@ -67,10 +93,10 @@
                                 <input class="form-control" name='images[]' type="file" id="formFileMultiple" multiple>
                             </div>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary">Add Tour</button>
                     </form>
-                    
+
                 </div>
 
                 <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...B</div>
