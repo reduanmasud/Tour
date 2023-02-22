@@ -34,4 +34,14 @@ class SiteSettingsController extends Controller
 
         return back()->with('success', "Title Successfully Updated");
     }
+
+
+    public function update_bkash(Request $request)
+    {
+
+        $this->site->site_bkash = $request->site_bkash;
+        $this->site->save();
+
+        return back()->with('success', "bKash Successfully Updated");
+    }
 }

@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::post('/site_settings/image', [SiteSettingsController::class, 'update_image'])->name('update.image');
 Route::post('/site_settings/title', [SiteSettingsController::class, 'update_title'])->name('update.title');
-
+Route::post('/site_settings/bkahs', [SiteSettingsController::class, 'update_bkash'])->name('update.bkash');
 
 Route::get('/user/login', [UserAuth::class, 'login_page'])->name('user.login');
 Route::post('/user/login', [UserAuth::class, 'login']);

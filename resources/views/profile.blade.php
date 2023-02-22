@@ -56,6 +56,16 @@
                         </div>
                     </form>
 
+                    <form action="{{ route('update.bkash') }}" method="post">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="" class="form-label">Site Bkash Number</label>
+                            <div class="input-group">
+                                <input type="text" name="site_bkash" id="" value="@if($site_settings->site_bkash != null) {{$site_settings->site_bkash}} @endif" class="form-control">
+                                <button type="submit" class="btn btn-primary">UPDATE BKASH</button>
+                            </div>
+                        </div>
+                    </form>
 
                 </div>
 
