@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="row fs-4">
-        To book seat you have to send the total ammount to this (01735221***) bkash number.
+        To book seat you have to send the total ammount to this ({{ $site_settings->site_bkash }}) bkash number.
         Then from your mobile number just write the or pest the TrxID at the below input.
         Within 1 or 2 hour you will get mobile sms of confirmation.
     </div>
