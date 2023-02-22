@@ -27,7 +27,7 @@
                     <td> = {{$data->sub_total}}</td>
                 </tr>
             </table>
-            <p class="text-danger">Now send {{$data->sub_total}} taka to 01933334** bkash number, counter no {{$data->tour_id}} and submit the TrxID number her and confirm bookings </p>
+            <p class="text-danger">Now send {{$data->sub_total}} taka to {{ $site_settings->site_bkash }} bkash number, counter no {{$data->tour_id}} and submit the TrxID number her and confirm bookings </p>
         </div>
         <div class="col-md-5">
             <div>
