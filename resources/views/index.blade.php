@@ -2,7 +2,7 @@
 @section('main-content')
 <div class="container marketing">
     @php
-        $tours = App\Models\Tour::all();
+        $tours = App\Models\Tour::where('seat_number','>', 0)->get();
         $i = 0;
     @endphp
 
@@ -41,7 +41,7 @@
     @endphp
     @endforeach
     @endif
-    
+
 </div>
 
 @endsection
