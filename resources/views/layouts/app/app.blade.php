@@ -95,8 +95,10 @@
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-            <span class="fs-4">{{$site_settings->site_title}}</span>
+            {{-- <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg> --}}
+            <img src="{{$site_settings->site_image}}" alt="" srcset="">
+
+            {{-- <span class="fs-4">{{$site_settings->site_title}}</span> --}}
             </a>
 
             <ul class="nav nav-pills">
@@ -127,13 +129,13 @@
     <div class="container-flex">
         <footer class="py-0 my-0">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Guids</a></li>
+            <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Guides</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Places</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
             </ul>
-            <p class="text-center text-muted">&copy; 2023 GHUTI</p>
+            <p class="text-center text-muted">&copy; 2023 {{$site_settings->site_title}}</p>
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
