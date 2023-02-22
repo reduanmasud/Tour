@@ -25,6 +25,10 @@
                         <input type="text" name="mobile" value="{{ old('mobile') }}"  class="form-control @error('mobile') is-invalid @enderror" required id="">
                     </div>
                     <div class="mb-3">
+                        <label class="form-label">NID NO</label>
+                        <input type="text" name="nid" value="{{ old('nid') }}"  class="form-control @error('nid') is-invalid @enderror" required id="">
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Password</label>
                         <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" required id="">
                     </div>

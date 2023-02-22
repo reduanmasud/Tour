@@ -45,6 +45,7 @@ class UserAuth extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'mobile' => ['required', 'max:14'],
+            'nid' => ['required']
         ]);
 
 
@@ -55,6 +56,7 @@ class UserAuth extends Controller
             'password' => Hash::make($request->password),
             'mobile' => $request->mobile,
             'role' => 0,
+            'nid' => $request->nid,
         ]);
 
         if(isset($request->user_type))
