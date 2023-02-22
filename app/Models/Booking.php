@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
 
+    use HasFactory;
+
     protected $fillable = [
         'email',
         'full_name',
@@ -20,5 +22,9 @@ class Booking extends Model
     // protected $primaryKey = 'moblile';
     // public $incrementing = false;
 
-    use HasFactory;
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

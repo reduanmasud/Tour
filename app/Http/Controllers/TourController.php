@@ -12,6 +12,21 @@ class TourController extends Controller
 {
 
 
+
+
+    public function active_tour()
+    {
+
+        $tours = Tour::where('user_id', Auth::user()->id)->where('seat_number', '>', 0)->get();
+        return view('account.active-tours',['tours'=>$tours]);
+    }
+
+
+    public function closed_tour()
+    {
+        return view('account.closed-tours');
+    }
+
     public function payment(Request $request)
     {
         Payment::create([
@@ -25,8 +40,8 @@ class TourController extends Controller
 
 
         $booking = Booking::find($request->booking_id);
-        $booking->paid = 1;
-        $booking->save();
+
+
 
         $tour = Tour::find($request->tour_id);
         $tour->seat_number = $tour->seat_number - $booking->number_of_persons;
@@ -76,7 +91,7 @@ class TourController extends Controller
      */
     public function create()
     {
-        //
+        return view('account.tour-add');
     }
 
     /**

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('trx_id');
             $table->string('total_amount');
             $table->string('mobile');
+            $table->boolean('confirmed')->default(0);
             $table->timestamps();
         });
     }

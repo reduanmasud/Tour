@@ -103,7 +103,7 @@
             <li class="nav-item"><a href="{{ route('home') }}" class="nav-link active" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="{{ route('browse.all') }}" class="nav-link">Browse</a></li>
             @auth
-                <li class="nav-item"><a href="{{route('dashboard')}}" class="nav-link">profile</a></li>
+                <li class="nav-item"><a href="{{route('account.tour.add')}}" class="nav-link">profile</a></li>
                 <li class="nav-item">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

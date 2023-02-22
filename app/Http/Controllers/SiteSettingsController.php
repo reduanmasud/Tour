@@ -15,6 +15,11 @@ class SiteSettingsController extends Controller
     }
 
 
+    public function index()
+    {
+        return view('account.settings');
+    }
+
     public function update_image(Request $request)
     {
         $fileName = uniqid() . '.' . $request->site_logo->getClientOriginalExtension();

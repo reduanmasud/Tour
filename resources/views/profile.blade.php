@@ -24,8 +24,8 @@
             <div class="list-group" id="list-tab" role="tablist">
                 <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Home</a>
                 <a class="list-group-item list-group-item-action" id="list-tour-add-list" data-bs-toggle="list" href="#list-add-tour" role="tab" aria-controls="list-add-tour">Add Tour</a>
-                <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">My Hosts</a>
-                <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
+                <a class="list-group-item list-group-item-action" id="list-active-host-list" data-bs-toggle="list" href="#list-active-host" role="tab" aria-controls="list-active-host">My Active Hosts</a>
+                <a class="list-group-item list-group-item-action" id="list-fillup-host-list" data-bs-toggle="list" href="#list-fillup-host" role="tab" aria-controls="list-fillup-host">Fill UP Hosts</a>
             </div>
         </div>
         <div class="col-8 bg-white border rounded">
@@ -112,11 +112,21 @@
 
                 </div>
 
-                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                <div class="tab-pane fade" id="list-active-host" role="tabpanel" aria-labelledby="list-active-host-list">
 
                     <div class="container mt-3">
+
+
+
+                </div>
+
+
+
+                <div class="tab-pane fade" id="list-fill-up-host" role="tabpanel" aria-labelledby="list-fill-up-host-list">
+                    assss
+                    <div class="container mt-3">
                         @php
-                            $tours = App\Models\Tour::where('user_id', Auth::user()->id)->get();
+                            $tours = App\Models\Tour::where('user_id', Auth::user()->id)->where('seat_number', 0)->get();
                         @endphp
                         <div class="row">
 
@@ -142,7 +152,6 @@
 
 
 
-                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">D...</div>
             </div>
         </div>
     </div>

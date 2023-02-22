@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteSettingsController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\UserAuth;
+use App\Models\Payment;
+use App\Models\SiteSetting;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,5 +56,23 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function(){
     Route::post('tour/add', [TourController::class, 'store'])->name('tour.add');
     Route::get('/tour/check/{id}', [TourController::class, 'tour_check'])->name('tour.view');
+
+});
+
+
+
+Route::middleware(['auth'])->prefix('account')->as('account.')->group(function(){
+    Route::get('/tour-add',[TourController::class, 'create'])->name('tour.add');
+    Route::post('/tour-add', [TourController::class, 'store']);
+
+    Route::get('/active-tour',[TourController::class, 'active_tour'])->name('tour.active');
+    Route::get('/closed-tour',[TourController::class, 'closed_tour'])->name('tour.closed');
+
+    Route::middleware([])->group(function() {
+        Route::get('/site-settings',[SiteSettingsController::class, 'index'])->name('site.settings');
+        Route::get('/payment-confirm', [PaymentController::class, 'index'])->name('site.confirm.pay');
+        Route::post('/tour/payment/confirm', [PaymentController::class, 'confirm'])->name('payment.confirm');
+    });
+
 });
 require __DIR__.'/auth.php';

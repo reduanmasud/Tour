@@ -14,6 +14,13 @@ class Payment extends Model
         'tour_id',
         'trx_id',
         'total_amount',
-        'mobile'
+        'mobile',
+        'confirmed'
     ];
+
+
+    public function booking()
+    {
+        return $this->belongsTo(Booking::class);
+    }
 }
