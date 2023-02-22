@@ -100,7 +100,7 @@
             <div class="col-md-6">Available Seat : {{$tour->seat_number}}</div>
         </div>
             @if ($tour->seat_number == 0)
-                <h1>This Tour han no available seat</h1>
+                <h1>This Tour has no available seat</h1>
             @else
             <form action="{{route('tour.booking')}}" method="POST">
 
