@@ -1,6 +1,7 @@
 @extends('layouts.profile')
 @section('content')
 <div class="col-8 bg-white border p-3 rounded">
+    <img src="{{ asset('/storage/'.$site_settings->site_image)}}" alt="" srcset="" height="100px">
     <form action="{{ route('update.image') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
