@@ -11,6 +11,38 @@ use Illuminate\Support\Facades\Auth;
 class TourController extends Controller
 {
 
+    public function tour_delete(Request $request)
+    {
+        $request->validate([
+            'tour_id' => 'required',
+        ]);
+
+
+        $tour = Tour::find($request->tour_id);
+
+        $tour->delete();
+
+        return redirect()->route('account.tour.active')->with('success', "Successfully Deleted");
+    }
+
+    public function tour_update(Request $request)
+    {
+        $request->validate([
+            'tour_id' => 'required',
+        ]);
+
+
+        $tour = Tour::find($request->tour_id);
+
+        $tour->destination = $request->destination;
+        $tour->description = $request->description;
+        $tour->seat_number = $request->seat_number;
+        $tour->cost_per_person = $request->cost_per_person;
+
+        $tour->save();
+
+        return back()->with('success', "Successfully Updated");
+    }
 
 
     public function single_view($id)

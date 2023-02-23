@@ -66,11 +66,14 @@ Route::middleware(['auth'])->prefix('account')->as('account.')->group(function()
     Route::get('/tour-add',[TourController::class, 'create'])->name('tour.add');
     Route::post('/tour-add', [TourController::class, 'store']);
 
+
     Route::get('/active-tour',[TourController::class, 'active_tour'])->name('tour.active');
     Route::get('/closed-tour',[TourController::class, 'closed_tour'])->name('tour.closed');
 
 
     Route::get('/tour/{id}', [TourController::class, 'single_view'])->name('tour.view');
+    Route::post('/tour/update', [TourController::class, 'tour_update'])->name('tour.update');
+    Route::post('/tour/delete', [TourController::class, 'tour_delete'])->name('tour.delete');
     Route::middleware([])->group(function() {
         Route::get('/site-settings',[SiteSettingsController::class, 'index'])->name('site.settings');
         Route::get('/payment-confirm', [PaymentController::class, 'index'])->name('site.confirm.pay');
