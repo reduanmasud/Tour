@@ -10,6 +10,7 @@
                 @if(Auth::user()->role == 3)
                     <a class="list-group-item list-group-item-action {{ Request::routeIs('account.site.settings') ? 'active' : '' }}" href="{{ route('account.site.settings') }}" >Settings</a>
                     <a class="list-group-item list-group-item-action {{ Request::routeIs('account.site.confirm.pay') ? 'active' : '' }}" href="{{ route('account.site.confirm.pay') }}" >Confirm Bookings Payment</a>
+                    <a class="list-group-item list-group-item-action {{ Request::routeIs('account.site.users') ? 'active' : '' }}" href="{{ route('account.site.users') }}" >Users</a>
                 @endif
             </div>
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteSettingsController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\UserAuth;
+use App\Http\Controllers\UserController;
 use App\Models\Payment;
 use App\Models\SiteSetting;
 use Illuminate\Support\Facades\Route;
@@ -74,6 +75,8 @@ Route::middleware(['auth'])->prefix('account')->as('account.')->group(function()
         Route::get('/site-settings',[SiteSettingsController::class, 'index'])->name('site.settings');
         Route::get('/payment-confirm', [PaymentController::class, 'index'])->name('site.confirm.pay');
         Route::post('/tour/payment/confirm', [PaymentController::class, 'confirm'])->name('payment.confirm');
+
+        Route::get('/site-users', [UserController::class, 'index'])->name('site.users');
     });
 
 });
