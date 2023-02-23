@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 @section('content')
 
-    <div class="container vh-100 d-flex align-items-center justify-content-center">
+    <div class="container d-flex align-items-center justify-content-center">
 
         <div class="card m-3">
 
