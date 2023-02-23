@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
             'role' => 3,
-            'nid' => 'ok',
+            'nid' => 12345,
             'password'=> '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password',
             'remember_token' => Str::random(10),
         ]);
@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
             'site_twitter' => "no data",
             'site_instragram' => "no data",
             'site_linkedin' => "no data",
+
         ]);
 
     }
