@@ -106,7 +106,7 @@
             <li class="nav-item"><a href="{{ route('browse.all') }}" class="nav-link {{ Request::routeIs('browse.all') ? 'active' : '' }}">Browse</a></li>
             <li class="nav-item"><a href="{{ route('contact.us') }}" class="nav-link {{ Request::routeIs('contact.us') ? 'active' : '' }}">Contact us</a></li>
             @auth
-                <li class="nav-item"><a href="{{route('account.tour.add')}}" class="nav-link {{ Request::routeIs('account.*') ? 'active' : '' }}">Profile</a></li>
+                <li class="nav-item"><a href="{{route('account.tour.add')}}" class="nav-link {{ Request::routeIs('account.*') ? 'active' : '' }}">Dashboard</a></li>
                 <li class="nav-item">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
