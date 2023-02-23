@@ -11,7 +11,7 @@
             $images = json_decode($tour->images);
             $first_image = $images[0];
         @endphp
-        <div class="card" style="width: 18rem;">
+        <div class="card mx-2" style="width: 18rem;">
             <img class="card-img-top mt-2" src="{{ asset('/storage/' . $first_image) }}" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{$tour->destination}}</h5>
