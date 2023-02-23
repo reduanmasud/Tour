@@ -30,7 +30,7 @@ class PaymentController extends Controller
 
         $booking = Booking::find($request->booking_id);
         $booking->paid = 1;
-        $payment->save();
+        $booking->save();
 
         return back()->with('success', "Payment Confirmed");
     }

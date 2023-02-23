@@ -1,8 +1,8 @@
 @extends('layouts.profile')
 @section('content')
-<div class="col-8 bg-white border rounded p-3">
+<div class="col-8 bg-white  rounded p-3 shadow-lg p-3 mb-5  rounded">
 
-    <form method="POST" action="" enctype="multipart/form-data">
+    <form method="POST" action="" enctype="multipart/form-data" class='p-4'>
         @csrf
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Destination</label>

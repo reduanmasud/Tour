@@ -94,7 +94,7 @@
         <div class="col-md-6">
             {{$tour->description}}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 shadow-lg p-3 mb-5 bg-body rounded">
         <div class="row bg-primary text-white border border-1 p-3 mx-1 mb-3">
             <div class="col-md-6">Cost per Person : {{$tour->cost_per_person}}</div>
             <div class="col-md-6">Available Seat : {{$tour->available_seat()}}</div>
