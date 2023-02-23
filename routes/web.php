@@ -68,6 +68,8 @@ Route::middleware(['auth'])->prefix('account')->as('account.')->group(function()
     Route::get('/active-tour',[TourController::class, 'active_tour'])->name('tour.active');
     Route::get('/closed-tour',[TourController::class, 'closed_tour'])->name('tour.closed');
 
+
+    Route::get('/tour/{id}', [TourController::class, 'single_view'])->name('tour.view');
     Route::middleware([])->group(function() {
         Route::get('/site-settings',[SiteSettingsController::class, 'index'])->name('site.settings');
         Route::get('/payment-confirm', [PaymentController::class, 'index'])->name('site.confirm.pay');

@@ -16,7 +16,7 @@ class Tour extends Model
         'seat_number',
         'description',
         'images',
-        'user_id'
+        'user_id',
 
     ];
     protected $casta = [

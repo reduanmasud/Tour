@@ -13,6 +13,33 @@ class TourController extends Controller
 
 
 
+    public function single_view($id)
+    {
+        $tour = Tour::find($id);
+        $bookings = $tour->bookings;
+        $totalBooking = 0;
+        $totalPrice = 0;
+        $totalPending = 0;
+        $totalBookingPending = 0;
+        foreach($bookings as $booking)
+        {
+            $payment = Payment::where('booking_id', $booking->id)->get();
+            $totalBooking += $booking->number_of_persons;
+            $totalPrice += $booking->payment->total_amount;
+            if($booking->paid == 0){
+                $totalPending += $booking->payment->total_amount;
+                $totalBookingPending += $booking->number_of_persons;
+            }
+        }
+        return view('account.tour-view',[
+            'tour' => $tour,
+            'bookings' => $bookings,
+            'totalBookings' => $totalBooking,
+            'totalPaid' => $totalPrice,
+            'totalPending' => $totalPending,
+            'totalBookingPending' => $totalBookingPending,
+        ]);
+    }
 
     public function active_tour()
     {

@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $tour->destination }}</h5>
                             <p class="card-text">{{ $tour->description }}</p>
-                            <a href="{{ route('tour.view', ['id' => $tour->id]) }}" class="btn btn-primary">Check</a>
+                            <a href="{{ route('account.tour.view', ['id' => $tour->id]) }}" class="btn btn-primary">Check</a>
                         </div>
                     </div>
                 @endforeach

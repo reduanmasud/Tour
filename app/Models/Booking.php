@@ -23,8 +23,8 @@ class Booking extends Model
     // public $incrementing = false;
 
 
-    public function payments()
+    public function payment()
     {
-        return $this->hasMany(Payment::class);
+        return $this->hasOne(Payment::class);
     }
 }
