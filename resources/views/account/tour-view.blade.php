@@ -25,10 +25,10 @@
                             <span><b>Number of Booked:</b> {{ $totalBookings }} <span >(Pending: {{$totalBookingPending}})</span></span>
                         </li>
                         <li class="list-group-item list-group-item-action">
-                            <span><b>Total Paid:</b> {{ $totalPaid }}TAKA <span >(Pending: {{$totalPending}})</span></span>
+                            <span><b>Total Paid:</b> {{ $totalPaid }} TAKA <span >(Pending: {{$totalPending}})</span></span>
                         </li>
                         <li class="list-group-item list-group-item-action">
-                            <span><b>Cost (per person): </b> {{ $tour->cost_per_person }}TAKA </span>
+                            <span><b>Cost (per person): </b> {{ $tour->cost_per_person }} TAKA </span>
                         </li>
                         <button type="button" class="list-group-item list-group-item-action active" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Send msg to everyone.
@@ -87,7 +87,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Message Send</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

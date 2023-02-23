@@ -1,7 +1,7 @@
 
 
-<div class="col-4">
-    <div class="list-group">
+<div class="col-4 ">
+    <div class="list-group rounded p-3 shadow-lg p-3 mb-5  rounded">
 
             <div class="list-group">
                 <a class="list-group-item list-group-item-action {{ Request::routeIs('account.tour.add') ? 'active' : '' }}" href="{{ route('account.tour.add') }}">Add Tour</a>
