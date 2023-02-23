@@ -104,6 +104,7 @@
             <ul class="nav nav-pills">
             <li class="nav-item"><a href="{{ route('home') }}" class="nav-link {{ Request::routeIs('home') ? 'active' : '' }}" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="{{ route('browse.all') }}" class="nav-link {{ Request::routeIs('browse.all') ? 'active' : '' }}">Browse</a></li>
+            <li class="nav-item"><a href="{{ route('contact.us') }}" class="nav-link {{ Request::routeIs('contact.us') ? 'active' : '' }}">Contact us</a></li>
             @auth
                 <li class="nav-item"><a href="{{route('account.tour.add')}}" class="nav-link {{ Request::routeIs('account.*') ? 'active' : '' }}">Profile</a></li>
                 <li class="nav-item">
