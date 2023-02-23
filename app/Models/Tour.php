@@ -42,4 +42,15 @@ class Tour extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function available_seat()
+    {
+        $totalBooked = 0;
+        foreach ($this->bookings as $key => $booking) {
+
+            $totalBooked += $booking->number_of_persons;
+        }
+
+        return $this->seat_number - $totalBooked;
+    }
 }

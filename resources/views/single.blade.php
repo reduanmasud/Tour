@@ -97,7 +97,7 @@
         <div class="col-md-6">
         <div class="row bg-primary text-white border border-1 p-3 mx-1 mb-3">
             <div class="col-md-6">Cost per Person : {{$tour->cost_per_person}}</div>
-            <div class="col-md-6">Available Seat : {{$tour->seat_number}}</div>
+            <div class="col-md-6">Available Seat : {{$tour->available_seat()}}</div>
         </div>
             @if ($tour->seat_number == 0)
                 <h1>This Tour has no available seat</h1>

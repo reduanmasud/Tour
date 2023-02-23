@@ -2,34 +2,7 @@
 @section('content')
     <div class="col-8 bg-white border rounded p-0">
 
-        @php
-            $tourImages = json_decode($tour->images);
-        @endphp
-        <div id="carouselExampleIndicators" class="carousel slide" style="height:300px; margin-bottom: 0px" data-bs-ride="true">
 
-            <div class="carousel-inner">
-
-                @php
-                    $active = true;
-                @endphp
-                @foreach ($tourImages as $image)
-                    <div class="carousel-item @if ($active) {{ $active = false }}active @endif">
-                        <img src="{{ asset('/storage/' . $image) }}" class="d-block w-100" height="300px" alt="...">
-                    </div>
-                @endforeach
-
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
 
         <div class="container p-3">
 

@@ -71,10 +71,10 @@ class TourController extends Controller
 
 
         $tour = Tour::find($request->tour_id);
-        $tour->seat_number = $tour->seat_number - $booking->number_of_persons;
+        $tour->seat_number = $tour->seat_number;
         $tour->save();
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', "Booking Successfull");
     }
 
     public function tour_check($id)
@@ -180,9 +180,9 @@ class TourController extends Controller
             'number_of_persons' => ['required'],
         ]);
 
-        if($request->number_of_persons > Tour::find($request->tour_id)->seat_number)
+        if($request->number_of_persons > Tour::find($request->tour_id)->available_seat())
         {
-            return back()->with("error", "Limit corsses");
+            return back()->with("error", "Does not has that much seat.");
         }
         $booking = Booking::create([
             'email' => $request->email,
