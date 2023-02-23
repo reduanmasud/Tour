@@ -43,6 +43,8 @@ Route::get('/booking', fn() => view('booking'))->name('tour.booking');
 Route::post('/booking', [TourController::class, 'booking']);
 Route::post('/payment', [TourController::class, 'payment'])->name('tour.payment');
 
+Route::get('/contact-us', fn()=>view('contact-us'))->name('contact.us');
+
 Route::get('/dashboard', function () {
     return view('profile');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -74,12 +76,16 @@ Route::middleware(['auth'])->prefix('account')->as('account.')->group(function()
     Route::get('/tour/{id}', [TourController::class, 'single_view'])->name('tour.view');
     Route::post('/tour/update', [TourController::class, 'tour_update'])->name('tour.update');
     Route::post('/tour/delete', [TourController::class, 'tour_delete'])->name('tour.delete');
+
     Route::middleware([])->group(function() {
         Route::get('/site-settings',[SiteSettingsController::class, 'index'])->name('site.settings');
         Route::get('/payment-confirm', [PaymentController::class, 'index'])->name('site.confirm.pay');
         Route::post('/tour/payment/confirm', [PaymentController::class, 'confirm'])->name('payment.confirm');
 
         Route::get('/site-users', [UserController::class, 'index'])->name('site.users');
+
+        Route::get('/contact-us', [SiteSettingsController::class, 'contact_us_page'])->name('contact.us');
+        Route::post('/contact-us', [SiteSettingsController::class, 'contact_us_page_update']);
     });
 
 });

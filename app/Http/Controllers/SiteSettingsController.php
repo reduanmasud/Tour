@@ -14,7 +14,18 @@ class SiteSettingsController extends Controller
         $this->site = SiteSetting::first();
     }
 
+    public function contact_us_page()
+    {
+        return view('account.contact-us');
+    }
 
+    public function contact_us_page_update(Request $request)
+    {
+        $this->site->site_contact_us = $request->contact;
+        $this->site->save();
+
+        return back()->with('success', 'Contact page successfully updated');
+    }
     public function index()
     {
         return view('account.settings');

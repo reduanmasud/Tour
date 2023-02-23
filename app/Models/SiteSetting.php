@@ -22,5 +22,7 @@ class SiteSetting extends Model
         'site_twitter',
         'site_instragram',
         'site_linkedin',
+        'site_contact_us',
+        'site_home_page_tour_limit',
     ];
 }

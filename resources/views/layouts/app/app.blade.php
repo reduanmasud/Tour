@@ -129,11 +129,11 @@
     <div class="container-flex">
         <footer class="py-0 my-0">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+            {{-- <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Guides</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Places</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li> --}}
+            <li class="nav-item"><a href="{{route('contact.us')}}" class="nav-link px-2 text-muted">Contact Us</a></li>
             </ul>
             <p class="text-center text-muted">&copy; 2023 {{$site_settings->site_title}}</p>
         </footer>

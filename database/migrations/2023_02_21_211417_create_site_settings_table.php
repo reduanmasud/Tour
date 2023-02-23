@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('site_instragram')->nullable();
             $table->string('site_linkedin')->nullable();
             $table->integer('site_home_page_tour_limit')->nullable();
+            $table->longText('site_contact_us')->nullable();
             $table->timestamps();
         });
     }
